@@ -58,28 +58,39 @@ const questions = [
 
 var startButton = document.getElementById("start-button");
 
+var myInterval;
+
 function startQuiz (){
-    console.log("start")
-    setInterval(timerStart, 1000);
-    test()
+    console.log("start");
+   myInterval = setInterval(timerStart,1000);
+    test();
 }
 
 startButton.addEventListener("click", startQuiz);
 
 
 
-var counter=59
+function myStopFunction() { 
+    clearInterval(myInterval);
+}
+
+var counter=120;
+var timeEl= document.getElementById("time");
 
 function timerStart() {
- var timeEl= document.getElementById("time")
- timeEl.textContent = "time: " + counter;
- counter=counter - 1
-
+    timeEl.textContent = "time: " + counter + " seconds";
+ if (counter <= 0){
+    myStopFunction();
+}
+else if (counter > 0){
+    counter=counter - 1;
+}
 }
 
 
 
-//1. Functional start button
+
+//1. Functional start button (done)
 //2. Timer starts when question is presented
 //3. Presented with another question
 //4. When answer is incorrect, 10 seconds is subtracted from timer
