@@ -55,20 +55,18 @@ const questions = [
     },
 ];
 
-
+//start button & timer start
 var startButton = document.getElementById("start-button");
-
 var myInterval;
 
 function startQuiz (){
     console.log("start");
    myInterval = setInterval(timerStart,1000);
     test();
+    displayQuestion()
 }
 
 startButton.addEventListener("click", startQuiz);
-
-
 
 function myStopFunction() { 
     clearInterval(myInterval);
@@ -86,9 +84,23 @@ else if (counter > 0){
     counter=counter - 1;
 }
 }
+var questionIndex = 0
 
-
-
+function displayQuestion() {
+    var display = document.getElementById("display-question");
+    display.textContent = questions[questionIndex].questionText;
+    console.log(questions[0].questionText);
+    //questionIndex++
+    var currentIndex = questions[questionIndex]
+    for (var i =0; i < currentIndex.options.length; i++){
+        console.log(currentIndex.options[i])
+        //activity 10 module 6
+        var optionButton = document.createElement("button")
+        optionButton.textContent = currentIndex.options[i]
+        var buttonBox =document.getElementById("buttonBox")
+        buttonBox.appendChild(optionButton);
+    }
+}
 
 //1. Functional start button (done)
 //2. Timer starts when question is presented
@@ -99,5 +111,5 @@ else if (counter > 0){
 //7. Able to see saved initials and scores from local storage
 
 function test(){
-    console.log("dkasfds")
+    console.log("dkasfds");
 }

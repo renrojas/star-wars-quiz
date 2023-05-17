@@ -1,0 +1,21 @@
+*/
+.center {
+    text-align: center;
+    padding: 70px 0;
+  }
+
+body{
+    background-color: black;
+    text-align: center;
+    color:#dfdfdf;
+    padding: 70px 0;
+}
+h1{
+    font-family: 'Dela Gothic One', cursive;
+    color: #ff0000;
+}
+header{
+    display: flex; 
+    justify-content: space-between;
+    background-color:  #2d2b3c
+}
