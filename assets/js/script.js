@@ -70,6 +70,7 @@ startButton.addEventListener("click", startQuiz);
 
 function myStopFunction() { 
     clearInterval(myInterval);
+    //display score
 }
 
 var counter=120;
@@ -85,27 +86,50 @@ else if (counter > 0){
 }
 }
 var questionIndex = 0
+var buttonBox =document.getElementById("buttonBox") //creates something to stick to in js
 
+
+//displays question and options
 function displayQuestion() {
     var display = document.getElementById("display-question");
     display.textContent = questions[questionIndex].questionText;
-    console.log(questions[0].questionText);
+    //console.log(questions[0].questionText);
     //questionIndex++
     var currentIndex = questions[questionIndex]
-    for (var i =0; i < currentIndex.options.length; i++){
+    buttonBox.innerHTML=""
+    for (var i =0; i < currentIndex.options.length; i++){ //loops the options
         console.log(currentIndex.options[i])
-        //activity 10 module 6
-        var optionButton = document.createElement("button")
+        var optionButton = document.createElement("button") //creates buttons on js (ref activity 10 mod 6)
         optionButton.textContent = currentIndex.options[i]
-        var buttonBox =document.getElementById("buttonBox")
+        optionButton.classList.add("optionButton") //creates a class for optionButton
+        optionButton.setAttribute("value",currentIndex.options[i])
         buttonBox.appendChild(optionButton);
     }
 }
+//function that reads button click on options
+function buttonClick (e) {
+    console.log(questions[0].answer)
+    var button = e.target 
+    if (button.value !== questions[questionIndex].answer) {
+        //console.log("incorrect")
+        counter=counter-10
+    }
 
+
+    questionIndex++
+    if (questionIndex < questions.length){
+        displayQuestion() 
+    } else {
+        myStopFunction()
+    }
+
+    console.log(questionIndex)
+}
+buttonBox.addEventListener("click", buttonClick)
 //1. Functional start button (done)
-//2. Timer starts when question is presented
-//3. Presented with another question
-//4. When answer is incorrect, 10 seconds is subtracted from timer
+//2. Timer starts when question is presented (done)
+//3. Presented with another question (done)
+//4. When answer is incorrect, 10 seconds is subtracted from timer (done)
 //5. Game over when all questions answered or timer reaches 0
 //6. Save initials and score to local storage 
 //7. Able to see saved initials and scores from local storage
