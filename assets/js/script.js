@@ -60,6 +60,8 @@ var correctAnswers=0;
 var startButton = document.getElementById("start-button");
 var myInterval;
 
+var display = document.getElementById("display-question");
+
 function startQuiz (){
     console.log("start");
    myInterval = setInterval(timerStart,1000);
@@ -74,19 +76,36 @@ function myStopFunction() {
     buttonBox.innerHTML="";
     display.innerHTML="";
     display.textContent=`Your score is: ${correctAnswers}`;
-    if ()
-    localStorage.setItem('high-score', JSON.stringify(correctAnswers));
+    var highscores = JSON.parse(window.localStorage.getItem('high-score')) || [];
+    if (highscores.indexOf(correctAnswers) ===-1) {
+        highscores.push(correctAnswers);
+      }
+    localStorage.setItem('high-score', JSON.stringify(highscores));
     correctAnswers=0;
 }
 
 var scoreButton = document.getElementById("score-button");
-scoreButton.addEventListener("click", showScores);
+scoreButton.addEventListener("click", showHighScores);
 
-function showScores() {
+function showScore() {
     buttonBox.innerHTML="";
     display.innerHTML="";
     display.textContent=`Your score is: ${correctAnswers}`;
-    const storedScored = JSON.parse(localStorage.getItem('high-score')) || []
+   
+}
+function showHighScores(){
+    const body = document.querySelector("body")
+    buttonBox.innerHTML="";
+    display.innerHTML="";
+    const storedScores = JSON.parse(localStorage.getItem('high-score')) || [];
+    storedScores.sort(function (a,b) {
+        return b - a
+    })
+        for (let i = 0; i < storedScores.length; i++) {
+            const newH2 = document.createElement("h2")
+            newH2.textContent = `High score: ${storedScores[i]}`;
+            body.append(newH2);
+    }
 }
 
 var counter=120;
@@ -107,7 +126,6 @@ var buttonBox =document.getElementById("buttonBox") //creates something to stick
 
 //displays question and options
 function displayQuestion() {
-    var display = document.getElementById("display-question");
     display.textContent = questions[questionIndex].questionText;
     //console.log(questions[0].questionText);
     //questionIndex++
