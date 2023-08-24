@@ -54,6 +54,7 @@ const questions = [
         answer: "D. Kyber crystals",
     },
 ];
+var correctAnswers=0;
 
 //start button & timer start
 var startButton = document.getElementById("start-button");
@@ -62,7 +63,6 @@ var myInterval;
 function startQuiz (){
     console.log("start");
    myInterval = setInterval(timerStart,1000);
-    test();
     displayQuestion()
 }
 
@@ -70,7 +70,23 @@ startButton.addEventListener("click", startQuiz);
 
 function myStopFunction() { 
     clearInterval(myInterval);
-    //display score
+    var display = document.getElementById("display-question");
+    buttonBox.innerHTML="";
+    display.innerHTML="";
+    display.textContent=`Your score is: ${correctAnswers}`;
+    if ()
+    localStorage.setItem('high-score', JSON.stringify(correctAnswers));
+    correctAnswers=0;
+}
+
+var scoreButton = document.getElementById("score-button");
+scoreButton.addEventListener("click", showScores);
+
+function showScores() {
+    buttonBox.innerHTML="";
+    display.innerHTML="";
+    display.textContent=`Your score is: ${correctAnswers}`;
+    const storedScored = JSON.parse(localStorage.getItem('high-score')) || []
 }
 
 var counter=120;
@@ -114,7 +130,10 @@ function buttonClick (e) {
         //console.log("incorrect")
         counter=counter-10
     }
-
+    if (button.value === questions[questionIndex].answer) {
+        correctAnswers++
+    }
+    console.log(correctAnswers)
 
     questionIndex++
     if (questionIndex < questions.length){
@@ -133,7 +152,3 @@ buttonBox.addEventListener("click", buttonClick)
 //5. Game over when all questions answered or timer reaches 0
 //6. Save initials and score to local storage 
 //7. Able to see saved initials and scores from local storage
-
-function test(){
-    console.log("dkasfds");
-}
