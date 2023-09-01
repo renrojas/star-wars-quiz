@@ -92,13 +92,13 @@ function showScore() {
     display.innerHTML="";
     display.textContent=`Your score is: ${correctAnswers}`;
    
-}
+}//shows scores on page after click of button
 function showHighScores(){
     const body = document.querySelector("body")
     buttonBox.innerHTML="";
     display.innerHTML="";
     const storedScores = JSON.parse(localStorage.getItem('high-score')) || [];
-    storedScores.sort(function (a,b) {
+    storedScores.sort(function (a,b) { //sorts scores from highes to lowest
         return b - a
     })
         for (let i = 0; i < storedScores.length; i++) {
@@ -108,7 +108,7 @@ function showHighScores(){
     }
 }
 
-var counter=120;
+var counter=90;
 var timeEl= document.getElementById("time");
 
 function timerStart() {
@@ -127,8 +127,6 @@ var buttonBox =document.getElementById("buttonBox") //creates something to stick
 //displays question and options
 function displayQuestion() {
     display.textContent = questions[questionIndex].questionText;
-    //console.log(questions[0].questionText);
-    //questionIndex++
     var currentIndex = questions[questionIndex]
     buttonBox.innerHTML=""
     for (var i =0; i < currentIndex.options.length; i++){ //loops the options
@@ -145,7 +143,6 @@ function buttonClick (e) {
     console.log(questions[0].answer)
     var button = e.target 
     if (button.value !== questions[questionIndex].answer) {
-        //console.log("incorrect")
         counter=counter-10
     }
     if (button.value === questions[questionIndex].answer) {
@@ -163,10 +160,3 @@ function buttonClick (e) {
     console.log(questionIndex)
 }
 buttonBox.addEventListener("click", buttonClick)
-//1. Functional start button (done)
-//2. Timer starts when question is presented (done)
-//3. Presented with another question (done)
-//4. When answer is incorrect, 10 seconds is subtracted from timer (done)
-//5. Game over when all questions answered or timer reaches 0
-//6. Save initials and score to local storage 
-//7. Able to see saved initials and scores from local storage
