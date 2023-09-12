@@ -98,7 +98,7 @@ function showHighScores(){
     buttonBox.innerHTML="";
     display.innerHTML="";
     const storedScores = JSON.parse(localStorage.getItem('high-score')) || [];
-    storedScores.sort(function (a,b) { //sorts scores from highes to lowest
+    storedScores.sort(function (a,b) { //sorts scores from highest to lowest
         return b - a
     })
         for (let i = 0; i < storedScores.length; i++) {
@@ -120,43 +120,43 @@ else if (counter > 0){
     counter=counter - 1;
 }
 }
-var questionIndex = 0
-var buttonBox =document.getElementById("buttonBox") //creates something to stick to in js
+var questionIndex = 0;
+var buttonBox =document.getElementById("buttonBox"); //creates something to stick to in js
 
 
 //displays question and options
 function displayQuestion() {
     display.textContent = questions[questionIndex].questionText;
-    var currentIndex = questions[questionIndex]
-    buttonBox.innerHTML=""
+    var currentIndex = questions[questionIndex];
+    buttonBox.innerHTML="";
     for (var i =0; i < currentIndex.options.length; i++){ //loops the options
-        console.log(currentIndex.options[i])
-        var optionButton = document.createElement("button") //creates buttons on js (ref activity 10 mod 6)
-        optionButton.textContent = currentIndex.options[i]
-        optionButton.classList.add("optionButton") //creates a class for optionButton
-        optionButton.setAttribute("value",currentIndex.options[i])
+        console.log(currentIndex.options[i]);
+        var optionButton = document.createElement("button"); //creates buttons on js (ref activity 10 mod 6)
+        optionButton.textContent = currentIndex.options[i];
+        optionButton.classList.add("optionButton"); //creates a class for optionButton
+        optionButton.setAttribute("value",currentIndex.options[i]);
         buttonBox.appendChild(optionButton);
     }
 }
 //function that reads button click on options
 function buttonClick (e) {
-    console.log(questions[0].answer)
-    var button = e.target 
+    console.log(questions[0].answer);
+    var button = e.target; 
     if (button.value !== questions[questionIndex].answer) {
-        counter=counter-10
+        counter=counter-10;
     }
     if (button.value === questions[questionIndex].answer) {
-        correctAnswers++
+        correctAnswers++;
     }
-    console.log(correctAnswers)
+    console.log(correctAnswers);
 
     questionIndex++
     if (questionIndex < questions.length){
-        displayQuestion() 
+        displayQuestion(); 
     } else {
-        myStopFunction()
+        myStopFunction();
     }
 
-    console.log(questionIndex)
+    console.log(questionIndex);
 }
-buttonBox.addEventListener("click", buttonClick)
+buttonBox.addEventListener("click", buttonClick);

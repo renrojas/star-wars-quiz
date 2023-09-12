@@ -1,31 +1,33 @@
 # star-wars-quiz
 
 ## Description
-
+My motivation to create this quiz was to practice using Web APIs by creating a coding assessment that includes a timed Star Wars multiple-choice quiz. This quiz helps any Star Wars fan either put in practice what they already know or learn new facts about the franchise. Creating this quiz taught me how to display and hide multiple things at a specific time, such as hide the high scores, unless they are being called, or display the next question instead of show all of the questions at the same time. I also learned how to use the counter and change its functionality based on the answer of the quiz. 
 
 
 ## Installation
 
-Project as a repository on GitHub: 
+Project as a repository on GitHub: https://github.com/renrojas/star-wars-quiz
 Project deployed on GitHub Pages: 
 
 ## Usage
 
-To navigate this webpage you can click on the hamburger menu on the top right of the page and choose between the "About Me", "My Work", "Contact Me", or "Resume" links.
+![Home Page](./assets/images/Home%20Page.png)
+To start with this quiz you can click on the "Start quiz!" button. When a question is shown, click on your answer. If your answer is incorrect, the quiz will deduct your time by 10 seconds.
 
-![alt text](./)
+![ Video ](./assets/images/giphy-2.GIF)
+
+ Each question is worth 1 point and the game will end when all questions are answered or when the timer reaches 0 seconds. 
+
+ At any time, during, after or before the quiz begins, you can click on the button High Scores to view the list of High Scores stored in local storage.
 
 
 ## Credits
 
-https://codepen.io/alvarotrigo/pen/QWqKOdb - Hamburger Menu
+https://www.w3schools.com/jsref/dom_obj_all.asp - HTML DOM Elements 
 
-https://www.w3schools.com/css/css_rwd_mediaqueries.asp - Media Queries
+https://www.w3schools.com/js/js_htmldom_eventlistener.asp - JavaScript HTML DOM EventListener
 
-https://www.w3schools.com/css/css3_variables.asp - CSS Variables
-
-https://www.w3schools.com/css/css3_flexbox.asp - Flexbox
-
+https://www.w3schools.com/html/html5_webstorage.asp - Local Storage API
 
 ## License
 
