@@ -14,7 +14,7 @@ Project deployed on GitHub Pages: https://renrojas.github.io/star-wars-quiz/
 ![Home Page](./assets/images/Home%20Page.png)
 To start with this quiz you can click on the "Start quiz!" button. When a question is shown, click on your answer. If your answer is incorrect, the quiz will deduct your time by 10 seconds.
 
-![Video](./assets/images/giphy-2.GIF)
+![Video](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXRrenZjbjE0Ynk1NWN5OTNmYXpiMXBnMmljdzh2b2ptN2Jqc2d3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3U6v9MUg3JiuZqRXTO/giphy.gif))
 
  Each question is worth 1 point and the game will end when all questions are answered or when the timer reaches 0 seconds. 
 
