@@ -7,14 +7,14 @@ My motivation to create this quiz was to practice using Web APIs by creating a c
 ## Installation
 
 Project as a repository on GitHub: https://github.com/renrojas/star-wars-quiz
-Project deployed on GitHub Pages: 
+Project deployed on GitHub Pages: https://renrojas.github.io/star-wars-quiz/
 
 ## Usage
 
 ![Home Page](./assets/images/Home%20Page.png)
 To start with this quiz you can click on the "Start quiz!" button. When a question is shown, click on your answer. If your answer is incorrect, the quiz will deduct your time by 10 seconds.
 
-![ Video ](./assets/images/giphy-2.GIF)
+![Video](./assets/images/giphy-2.GIF)
 
  Each question is worth 1 point and the game will end when all questions are answered or when the timer reaches 0 seconds. 
 
